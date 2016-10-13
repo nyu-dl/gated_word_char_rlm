@@ -1,0 +1,44 @@
+#
+# model configs - Gated Word & Char
+#
+
+### model hyperparameters ###
+model_type: gate
+n_char:  51  # num of unique characters (dict size + 1)
+n_words: 10000  # vocabulary size
+dim_char: 200  # char vector dimensionality
+dim_word: 200   # word vector dimensionality
+dim_bi_lstm: 200  # num of hidden units in the bidirectional LSTMs
+dim_lm_lstm: 200  # num of hidden units in the language modeling part
+maxlen: None   # maximum length (char-based) of the sentence 
+gradclip: 5.  # gradient clipping
+use_dropout: False  # dropout: True or False
+bos: "|"  # the BOS symbol
+
+### optimization ###
+optimizer: sgd
+batch_size: 32
+lrate: 1.  # learning rate
+lr_decay: 2.  # decay factor, must be float
+lr_decay_start: 4  # decay starts after this epoch
+patience: 3  # early stopping
+pretrain: 0  # the first m epochs: word only, the next m epochs: char only
+             # set 0 to disable 
+
+### display / save ###
+max_epochs: 100
+dispFreq: 100  # display NLL after every x updates
+saveFreq: 1000  # save params after every y updates
+validFreq: 1000  # perform validation afer every z updates
+reload_: False
+
+### model paths ###   
+saveto: gate_word_char_ptb.npz # the newest model 
+savebestto: gate_word_char_ptb_best.npz # the best model
+
+### data paths ###
+word_dictionary: ./data/ptb_dict_word.pkl
+char_dictionary: ./data/ptb_dict_char.pkl
+train_text: ./data/ptb_train_50w.txt
+valid_text: ./data/ptb_valid.txt
+test_text: ./data/ptb_test.txt
