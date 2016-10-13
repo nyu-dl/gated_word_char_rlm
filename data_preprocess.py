@@ -44,7 +44,7 @@ def prepare_char_data(seqs_x, seqs_x_r, maxlen=None, n_char=205):
                      dimensions: (length of the longest sentence in a batch, batch size)
  
     """
-    assert(len(seqs_x) == len(seqs_x_r)), 'invalid inputs: length mis-match'
+    assert(len(seqs_x) == len(seqs_x_r)), 'invalid inputs: length mismatch'
     lengths_x = [len(s) for s in seqs_x]
     n_samples = len(seqs_x)
     maxlen_x = numpy.max(lengths_x)
