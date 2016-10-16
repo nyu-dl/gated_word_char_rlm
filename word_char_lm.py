@@ -159,7 +159,7 @@ def build_model(tparams, options):
     n_timesteps = x_f.shape[0]  
     n_samples = x_f.shape[1]
 
-    # word-based emmbedings
+    # word-based embeddings
     Wemb = tparams['word_lookup'][x_word_input.flatten()].reshape([n_timesteps, n_samples, options['dim_word']])
 
     # char-based embeddings / bidirectional LSTM
