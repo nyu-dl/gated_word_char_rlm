@@ -138,7 +138,7 @@ def build_model(tparams, options):
     n_timesteps = x_word_input.shape[0]  
     n_samples = x_word_input.shape[1]
 
-    # word-based emmbedings
+    # word-based embeddings
     Wemb = tparams['word_lookup'][x_word_input.flatten()].reshape([n_timesteps, n_samples, options['dim_word']])
     Wemb_shifted = tensor.zeros_like(Wemb)
     Wemb_shifted = tensor.set_subtensor(Wemb_shifted[1:], Wemb[:-1])
