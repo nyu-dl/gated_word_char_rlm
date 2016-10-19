@@ -315,7 +315,7 @@ def txt_to_word_inps(x, word_dict, opts):
 
     Returns
     -------
-    x_wordt_      : 2d numpy array, word-level inputs,
+    x_word_       : 2d numpy array, word-level inputs,
                     dimensions: (length of the longest sentence in a batch, batch size)
     x_word_mask_  : 2d numpy array, binary matrix, 1 if word 0 otherwise,
                     dimensions: (length of the longest sentence in a batch, batch size)
